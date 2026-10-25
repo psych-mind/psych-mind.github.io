@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jiayun Li</title>
+<meta name="description" content="Jiayun Li is a PhD candidate at the University of Queensland working on temporal knowledge graphs, entity alignment, and knowledge-grounded language models.">
+<meta property="og:title" content="Jiayun Li">
+<meta property="og:description" content="PhD candidate in NLP and knowledge graphs at the University of Queensland. Papers at EMNLP 2026, ACL 2026 Findings, and WSDM 2025.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column with a left rail of dates; the hero carries a drawn pair of temporal knowledge graphs whose aligned entities are linked across time. */
+:root {
+  --bg: #F4F7F6;
+  --surface: #FFFFFF;
+  --fg: #16201F;
+  --muted: #5A6866;
+  --rule: #D5DEDC;
+  --accent: #1F4A45;
+  --accent-soft: #E3EDEA;
+  --signal: #B5651D;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1716; --surface: #152120; --fg: #E4ECEA; --muted: #93A5A2;
+    --rule: #26393A; --accent: #7FC4B6; --accent-soft: #1A2E2B; --signal: #E39A55;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1716; --surface: #152120; --fg: #E4ECEA; --muted: #93A5A2;
+  --rule: #26393A; --accent: #7FC4B6; --accent-soft: #1A2E2B; --signal: #E39A55;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 48px 64px; display: grid; gap: 64px; }
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+p { margin: 0; }
+.mono { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.01em; }
+
+/* ---------- Hero ---------- */
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(44px, 7vw, 72px); font-weight: 700; letter-spacing: -0.02em; color: var(--accent); }
+.role { font-family: var(--font-display); font-size: 19px; font-weight: 500; margin-top: 10px; }
+.lede { margin-top: 20px; max-width: 34em; font-size: 18px; }
+.links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; font-family: var(--font-display); font-size: 15px; font-weight: 600; }
+.email { display: inline-flex; align-items: center; gap: 8px; }
+.email span { font-family: var(--font-mono); font-weight: 400; font-size: 14px; user-select: all; }
+.copy {
+  font: 500 12px var(--font-mono); color: var(--accent); background: var(--accent-soft);
+  border: 1px solid var(--rule); border-radius: 4px; padding: 3px 8px; cursor: pointer;
+}
+.copy:hover { border-color: var(--accent); }
+.figure { min-width: 0; }
+.figure svg { width: 100%; height: auto; display: block; }
+.figure figcaption { margin-top: 8px; color: var(--muted); font-size: 14px; font-style: italic; }
+
+.notice {
+  display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline;
+  border-left: 3px solid var(--signal); background: var(--surface);
+  padding: 14px 18px; font-size: 16px;
+}
+.notice strong { font-family: var(--font-display); font-weight: 600; }
+
+/* ---------- Sections ---------- */
+section { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px 40px; }
+section > h2 {
+  font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); padding-top: 6px;
+}
+.body { min-width: 0; display: grid; gap: 18px; }
+.body > p { max-width: 38em; }
+
+.interests { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.interests li { padding-left: 18px; position: relative; max-width: 38em; }
+.interests li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.interests b { font-family: var(--font-display); font-weight: 600; }
+
+/* News: dated log */
+.news { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.news li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; align-items: baseline; }
+.news time { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Publications */
+.pubs { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; }
+.pub { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 16px; }
+.venue {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);
+  border: 1px solid var(--accent); border-radius: 3px; padding: 2px 6px; align-self: start;
+  text-align: center; line-height: 1.4;
+}
+.venue.pending { color: var(--muted); border-color: var(--rule); }
+.pub h3 { font-size: 18px; font-weight: 600; }
+.pub .authors { font-size: 15px; color: var(--muted); margin-top: 2px; }
+.pub .authors b { color: var(--fg); font-weight: 600; }
+.pub .summary { margin-top: 6px; font-size: 16px; max-width: 38em; }
+.pub .meta { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--font-display); font-size: 14px; font-weight: 600; }
+.subhead { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--muted); margin-top: 6px; }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.project { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.project h3 { font-size: 17px; font-weight: 600; }
+.project p { font-size: 15.5px; }
+.project .stat { font-family: var(--font-mono); font-size: 13px; color: var(--signal); }
+
+/* Timeline (education / experience) */
+.rows { display: grid; gap: 14px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; align-items: baseline; }
+.row h3 { font-size: 17px; font-weight: 600; }
+.row .when { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row p { grid-column: 1 / -1; font-size: 15.5px; color: var(--muted); }
+
+footer { border-top: 1px solid var(--rule); padding-top: 20px; color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  section { grid-template-columns: 1fr; gap: 14px; }
+  section > h2 { padding-top: 0; }
+  .pub { grid-template-columns: 1fr; gap: 8px; }
+  .venue { justify-self: start; }
+  .news li { grid-template-columns: 1fr; gap: 2px; }
+  .row { grid-template-columns: 1fr; }
+}
+
+/* Gentle draw-in for the alignment links; visible at rest */
+@media (prefers-reduced-motion: no-preference) {
+  .align { stroke-dasharray: 4 5; animation: flow 6s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -54; } }
+}
+
+/* Base reset for standalone hosting */
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img, svg { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <h1>Jiayun Li</h1>
+      <p class="role">PhD candidate in NLP &amp; knowledge graphs · The University of Queensland</p>
+      <p class="lede">I study how to keep knowledge consistent and usable when it comes from many sources, conflicts, and keeps changing over time, and how to make language models reason over it reliably.</p>
+      <div class="links">
+        <span class="email"><span id="email">jiayun.li@uq.edu.au</span><button class="copy" id="copy-email" type="button">Copy</button></span>
+        <a href="https://github.com/psych-mind">GitHub</a>
+        <a href="Jiayun_Li_CV.pdf">CV (PDF)</a>
+      </div>
+    </div>
+
+    <figure class="figure" aria-label="Two temporal knowledge graphs drawn on a shared time axis, with aligned entities linked between them">
+      <svg viewBox="0 0 420 250" role="img">
+        <title>Entity alignment across two evolving knowledge graphs</title>
+        <!-- time axis -->
+        <g font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">
+          <text x="30" y="242">2023</text><text x="130" y="242">2024</text><text x="230" y="242">2025</text><text x="330" y="242">2026</text>
+        </g>
+        <line x1="20" y1="228" x2="400" y2="228" stroke="var(--rule)" stroke-width="1"/>
+        <g stroke="var(--rule)" stroke-width="1">
+          <line x1="40" y1="224" x2="40" y2="232"/><line x1="140" y1="224" x2="140" y2="232"/>
+          <line x1="240" y1="224" x2="240" y2="232"/><line x1="340" y1="224" x2="340" y2="232"/>
+        </g>
+        <!-- lane labels -->
+        <g font-family="Schibsted Grotesk, Arial, sans-serif" font-size="11" font-weight="600" fill="var(--muted)">
+          <text x="20" y="22">KG  A</text><text x="20" y="208">KG  B</text>
+        </g>
+        <!-- KG A edges -->
+        <g stroke="var(--accent)" stroke-width="1.5" fill="none" opacity="0.55">
+          <path d="M60 60 L120 40 L190 70 L260 45 L330 65"/>
+          <path d="M120 40 L150 90"/><path d="M260 45 L290 95"/>
+        </g>
+        <!-- KG B edges -->
+        <g stroke="var(--accent)" stroke-width="1.5" fill="none" opacity="0.55">
+          <path d="M70 170 L130 190 L195 160 L255 185 L320 165"/>
+          <path d="M130 190 L160 140"/><path d="M255 185 L300 138"/>
+          <path d="M320 165 L370 178"/>
+        </g>
+        <!-- alignment links -->
+        <g stroke="var(--signal)" stroke-width="1.4" fill="none">
+          <line class="align" x1="120" y1="40" x2="130" y2="190"/>
+          <line class="align" x1="190" y1="70" x2="195" y2="160"/>
+          <line class="align" x1="260" y1="45" x2="255" y2="185"/>
+          <line class="align" x1="330" y1="65" x2="320" y2="165"/>
+        </g>
+        <!-- KG A nodes -->
+        <g fill="var(--surface)" stroke="var(--accent)" stroke-width="2">
+          <circle cx="60" cy="60" r="6"/><circle cx="120" cy="40" r="7"/><circle cx="190" cy="70" r="7"/>
+          <circle cx="150" cy="90" r="5"/><circle cx="260" cy="45" r="7"/><circle cx="290" cy="95" r="5"/>
+          <circle cx="330" cy="65" r="7"/>
+        </g>
+        <!-- KG B nodes -->
+        <g fill="var(--surface)" stroke="var(--accent)" stroke-width="2">
+          <circle cx="70" cy="170" r="6"/><circle cx="130" cy="190" r="7"/><circle cx="195" cy="160" r="7"/>
+          <circle cx="160" cy="140" r="5"/><circle cx="255" cy="185" r="7"/><circle cx="300" cy="138" r="5"/>
+          <circle cx="320" cy="165" r="7"/>
+        </g>
+        <!-- newly evolved entity -->
+        <circle cx="370" cy="178" r="7" fill="var(--signal)"/>
+        <text x="352" y="205" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--signal)">new</text>
+      </svg>
+      <figcaption>The same entities, described differently by two sources over time. My work finds the matches, and keeps them up to date as new facts arrive.</figcaption>
+    </figure>
+  </header>
+
+  <p class="notice"><strong>EMNLP 2026, Budapest.</strong> <span>Presenting ELITE in the Main Conference. I'm looking for research scientist, applied scientist, and postdoctoral roles after completing my PhD in November 2026.</span></p>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="body">
+      <p>My PhD, <em>Information Extraction from Large Knowledge Bases</em>, focuses on temporal entity alignment: finding the nodes in different temporal knowledge graphs that refer to the same real-world entity. I am advised by Prof. Xue Li and Prof. Wen Hua, and supported by an Australian Government Research Training Program Scholarship.</p>
+      <ul class="interests">
+        <li><b>Temporal and evolving knowledge graphs.</b> Alignment across sources and time, incremental learning on dynamic graphs, and loss-grounded message weighting in graph neural networks.</li>
+        <li><b>Language models grounded in structured knowledge.</b> Retrieval-augmented generation, knowledge-graph-grounded dialogue agents, and multi-hop reasoning.</li>
+        <li><b>Alignment and evaluation.</b> When preference optimization beats supervised fine-tuning, and evaluation that stays calibrated and auditable without an LLM judge.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="news">
+    <h2>News</h2>
+    <div class="body">
+      <ul class="news">
+        <li><time datetime="2026-10">Oct 2026</time><span>Presenting ELITE at EMNLP 2026 in Budapest.</span></li>
+        <li><time datetime="2026-08">Aug 2026</time><span>ELITE accepted to the EMNLP 2026 Main Conference.</span></li>
+        <li><time datetime="2026-07">Jul 2026</time><span>RCTEA published in Findings of ACL 2026. Started as a part-time Research Officer at UQ, leading the SPOT project.</span></li>
+        <li><time datetime="2026">2026</time><span>RUNE-TEA submitted to IEEE Transactions on Knowledge and Data Engineering.</span></li>
+        <li><time datetime="2025-03">Mar 2025</time><span>Presented HTEA at WSDM 2025 in Hannover with a student travel grant.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="body">
+      <ol class="pubs">
+        <li class="pub">
+          <span class="venue">EMNLP 2026</span>
+          <div>
+            <h3>ELITE: Evolving Localized and Informative Temporal Entity Alignment</h3>
+            <p class="authors"><b>Jiayun Li</b>, et al. Main Conference.</p>
+            <p class="summary">The first framework for entity alignment on knowledge graphs that keep evolving. Informative seed selection and localized incremental inference give about 4× faster inference and 10× less memory than full retraining, at state-of-the-art accuracy.</p>
+            <p class="meta"><a href="https://github.com/psych-mind/ELITE">Code</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="venue">ACL 2026<br>Findings</span>
+          <div>
+            <h3>RCTEA: Richness-guided Co-training for Temporal Entity Alignment</h3>
+            <p class="authors"><b>Jiayun Li</b>, et al. Findings of ACL 2026, pp. 39295–39310.</p>
+            <p class="summary">Dual-view structural and temporal graph attention, weighted by how much evidence each neighbour carries, with neighbourhood-consensus denoising. About 6% over the strongest baselines on YAGO-WIKI180K and BETA.</p>
+            <p class="meta"><a href="https://github.com/psych-mind/RCTEA_">Code</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="venue">WSDM 2025</span>
+          <div>
+            <h3>HTEA: Heterogeneity-aware Embedding Learning for Temporal Entity Alignment</h3>
+            <p class="authors"><b>Jiayun Li</b>, et al. WSDM 2025, pp. 982–990.</p>
+            <p class="summary">Shows that existing methods assume homogeneous structure and degrade on multi-source data, and proposes heterogeneity-aware embedding learning.</p>
+            <p class="meta"><a href="https://github.com/psych-mind/HTEA">Code</a></p>
+          </div>
+        </li>
+
+        <li class="subhead">Under review and in preparation</li>
+
+        <li class="pub">
+          <span class="venue pending">IEEE TKDE</span>
+          <div>
+            <h3>Beyond Richness: Loss-Grounded Neighbourhood Utility for Temporal Entity Alignment</h3>
+            <p class="authors"><b>Jiayun Li</b>, et al. Under review.</p>
+            <p class="summary">Rich neighbours are not always helpful ones: on BETA, the 2.34% highest-degree senders draw 48.49% of attention, yet removing their messages improves accuracy. RUNE-TEA learns each message's measured effect on the alignment loss and corrects richness-guided attention with it, improving H@1 over RCTEA by 2.35, 1.09, and 1.91 points under full-candidate evaluation.</p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="venue pending">In prep.</span>
+          <div>
+            <h3>SPOT: Socratic Probing over Typed-graphs for Detecting Student Blind Spots</h3>
+            <p class="authors"><b>Jiayun Li</b>, et al. Targeting ACL 2027.</p>
+            <p class="summary">A knowledge-graph-grounded Socratic agent that finds what a student doesn't know they don't know, with calibrated per-concept beliefs in place of a biased LLM judge.</p>
+            <p class="meta"><a href="https://github.com/psych-mind/blindspot-demo">Code</a></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="body">
+      <div class="projects">
+        <article class="project">
+          <h3>SFT vs. DPO: when does preference optimization pay off?</h3>
+          <p>A controlled LoRA study on Qwen2.5-1.5B-Instruct, measured only with judge-free metrics such as behavior rate, reference perplexity, and per-token KL.</p>
+          <p class="stat">off-policy pairs: ~4.2× KL cost · SFT works at N=50, DPO needs ~300</p>
+        </article>
+        <article class="project">
+          <h3>Oil &amp; gas knowledge graph QA</h3>
+          <p>Tiered retrieval-augmented question answering over real global energy asset data, with Neo4j and PostgreSQL backends. Each query is routed to templated retrieval, two-stage synthesis, or multi-hop retrieval to balance cost and latency.</p>
+          <p class="stat">14-table schema · 36-field curated dataset</p>
+        </article>
+        <article class="project">
+          <h3>Scaling alignment on H100 clusters</h3>
+          <p>Rebuilt quadratic similarity search over about 180,000 entities as chunked top-k retrieval, with mixed precision and GPU memory optimization.</p>
+          <p class="stat">&gt;80% memory reduction</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="body rows">
+      <div class="row"><h3>Research Officer (part-time), The University of Queensland</h3><span class="when">Jul 2026 – now</span><p>Leading SPOT from problem formulation to system, evaluation, and paper.</p></div>
+      <div class="row"><h3>Tutor, The University of Queensland</h3><span class="when">Jul 2025 – now</span><p>INFS2200 Relational Databases (2025, 2026) and DATA7703 Machine Learning for Data Scientists (2026).</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="body rows">
+      <div class="row"><h3>PhD, School of EECS, The University of Queensland</h3><span class="when">2023 – Nov 2026</span><p>Australian Government RTP Scholarship.</p></div>
+      <div class="row"><h3>Master of Data Science, The University of Queensland</h3><span class="when">2021 – 2022</span><p>GPA 6.19 / 7 (Distinction).</p></div>
+      <div class="row"><h3>B.Eng., Measurement &amp; Control Technology and Instruments, Tianjin University</h3><span class="when">2016 – 2020</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Jiayun Li · Brisbane, Australia</span>
+    <span>Last updated October 2026</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  var text = document.getElementById('email');
+  if (!btn || !text) return;
+  btn.addEventListener('click', function () {
+    var value = text.textContent.trim();
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(text);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
