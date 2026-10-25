@@ -95,10 +95,6 @@ section > h2 {
 .interests li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 .interests b { font-family: var(--font-display); font-weight: 600; }
 
-/* News: dated log */
-.news { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.news li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; align-items: baseline; }
-.news time { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* Publications */
 .pubs { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; }
@@ -138,7 +134,6 @@ footer { border-top: 1px solid var(--rule); padding-top: 20px; color: var(--mute
   section > h2 { padding-top: 0; }
   .pub { grid-template-columns: 1fr; gap: 8px; }
   .venue { justify-self: start; }
-  .news li { grid-template-columns: 1fr; gap: 2px; }
   .row { grid-template-columns: 1fr; }
 }
 
